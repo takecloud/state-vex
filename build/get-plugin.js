@@ -1,5 +1,4 @@
 import config from './config';
-import getPostcss from './get-postcss';
 
 import progress from 'rollup-plugin-progress';
 import replace from 'rollup-plugin-replace';
@@ -11,7 +10,6 @@ import eslint from 'rollup-plugin-eslint';
 import babel from 'rollup-plugin-buble';
 import uglify from 'rollup-plugin-uglify';
 import filesize from 'rollup-plugin-filesize';
-import postcss from 'rollup-plugin-postcss';
 import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
 
@@ -59,11 +57,6 @@ const plugins = {
   },
   filesize () {
     return filesize();
-  },
-  postcss (opt) {
-    if (!config.extract && !opt.force) return;
-
-    return postcss(getPostcss(opt));
   },
   serve () {
     return serve({

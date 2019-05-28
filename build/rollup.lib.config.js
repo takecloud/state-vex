@@ -1,7 +1,7 @@
 import getPlugin from './get-plugin';
 import { name } from '../package.json';
 
-const entry = 'es/index.js';
+const entry = 'src/index.js';
 const moduleName = name.replace(/-(\w)/g, ($, $1) => $1.toUpperCase());
 
 export default [{
@@ -20,10 +20,6 @@ export default [{
     getPlugin('replace'),
     getPlugin('eslint'),
     getPlugin('alias'),
-    getPlugin('postcss', {
-      extract: 'lib/style.css',
-      minify: false
-    }),
     getPlugin('json'),
     getPlugin('resolve'),
     getPlugin('commonjs'),
@@ -46,10 +42,6 @@ export default [{
     getPlugin('replace'),
     getPlugin('eslint'),
     getPlugin('alias'),
-    getPlugin('postcss', {
-      extract: 'lib/style.min.css',
-      minify: true
-    }),
     getPlugin('json'),
     getPlugin('resolve'),
     getPlugin('commonjs'),

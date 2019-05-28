@@ -5,7 +5,7 @@ export default {
   input: 'src/index.js',
   output: {
     file: 'dist/vx.js',
-    format: 'iife',
+    format: 'es',
     sourcemap: config.dev
   },
   plugins: [

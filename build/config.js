@@ -17,8 +17,5 @@ export default {
   px2rem: {
     use: false,
     unit: 16
-  },
-  cssModules: {
-    global: ['node_modules']
   }
 }
