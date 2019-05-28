@@ -19,9 +19,6 @@ module.exports = {
     "no-var": 1,
     "no-alert": 1,
     "no-unused-vars": __DEV__ ? 1 : 2,
-    "no-debugger": __DEV__ ? 1 : 2,
-    "no-console": [__DEV__ ? 1 : 2, {
-      "allow": ["info", "warn", "error"]
-    }]
+    "no-debugger": __DEV__ ? 1 : 2
   }
 }

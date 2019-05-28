@@ -17,7 +17,8 @@
     ]
   ],
   "plugins": [
-    "external-helpers"
+    "external-helpers",
+    "@babel/plugin-transform-async-to-generator"
   ],
   "env": {
     "development": {},

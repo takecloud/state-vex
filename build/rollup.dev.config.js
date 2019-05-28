@@ -1,11 +1,11 @@
 import config from './config';
 import getPlugin from './get-plugin';
 
-export default {
+export default [{
   input: 'src/index.js',
   output: {
     file: 'dist/vx.js',
-    format: 'es',
+    format: 'cjs',
     sourcemap: config.dev
   },
   plugins: [
@@ -19,9 +19,7 @@ export default {
     getPlugin('resolve'),
     getPlugin('commonjs'),
     getPlugin('babel'),
-    config.dev && getPlugin('serve'),
-    config.dev && getPlugin('livereload'),
     !config.dev && getPlugin('uglify'),
     !config.dev && getPlugin('filesize')
   ].filter(p => p)
-};
+}]
