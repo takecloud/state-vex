@@ -30,7 +30,7 @@ export default [{
   input: entry,
   name: moduleName,
   output: {
-    file: 'lib/index.min.js',
+    file: 'index.js',
     format: 'umd',
     exports: 'named',
     sourcemap: false
