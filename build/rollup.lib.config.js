@@ -8,29 +8,7 @@ export default [{
   input: entry,
   name: moduleName,
   output: {
-    file: 'lib/index.js',
-    format: 'umd',
-    exports: 'named',
-    sourcemap: false
-  },
-  plugins: [
-    getPlugin('progress', {
-      clear: true
-    }),
-    getPlugin('replace'),
-    getPlugin('eslint'),
-    getPlugin('alias'),
-    getPlugin('json'),
-    getPlugin('resolve'),
-    getPlugin('commonjs'),
-    getPlugin('babel'),
-    getPlugin('filesize')
-  ].filter(p => p)
-}, {
-  input: entry,
-  name: moduleName,
-  output: {
-    file: 'lib/index.min.js',
+    file: 'index.js',
     format: 'umd',
     exports: 'named',
     sourcemap: false

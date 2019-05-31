@@ -4,9 +4,7 @@
   "description": "轻量响应式的状态管理, 可用作小程序数据侦听器/跨页面刷新工具等",
   "main": "lib/index.min.js",
   "scripts": {
-    "dev": "./node_modules/.bin/rollup -c build/rollup.dev.config.js --watch",
-    "lib": "./node_modules/.bin/rollup -c build/rollup.lib.config.js",
-    "v": "node build/update-version.js"
+    "lib": "./node_modules/.bin/rollup -c build/rollup.lib.config.js"
   },
   "keywords": [
     "weapp",

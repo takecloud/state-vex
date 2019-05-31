@@ -1,8 +1,12 @@
 .DS_Store
 .cache/
 .vscode/
+.eslintignore
+.eslintrc.js
 node_modules/
 test/node_modules/
 /public/static
+src/
 *yarn*
 *.log*
+README.md
