@@ -3,5 +3,6 @@
 const VX = require('../dist/vx.js')
 
 const vx = new VX()
+const store = vx.store
 
-console.log(vx)
+console.log(store)
