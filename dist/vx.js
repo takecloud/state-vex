@@ -73,14 +73,22 @@ var VX = function VX () {
   this.id = VXID++;
   this.store = Store.createStore();
 };
+// TODO async await
 VX.prototype.watch = function watch (key, fn, options, obj) {
     if ( options === void 0 ) options = { immediately: false };
     if ( obj === void 0 ) obj = this.store;
 
-  Dep.watcher = fn;
-  walkChains(key, obj);
-  Dep.watcher = null;
-  options.immediately && fn(options.defaultParams);
+  return new Promise(function (resolve) {
+    Dep.watcher = fn;
+    walkChains(key, obj);
+    Dep.watcher = null;
+    if (options.immediately) {
+      var fnRes = fn(options.defaultParams);
+      fnRes instanceof Promise
+        ? fnRes.then(function (res) { return resolve(res); })
+        : resolve(fnRes);
+    }
+  })
 };
 VX.prototype.unwatch = function unwatch (key, fn, obj) {
     if ( obj === void 0 ) obj = this.store;

@@ -20,11 +20,19 @@ class VX {
     this.id = VXID++
     this.store = Store.createStore()
   }
+  // TODO async await
   watch (key, fn, options = { immediately: false }, obj = this.store) {
-    Dep.watcher = fn
-    walkChains(key, obj)
-    Dep.watcher = null
-    options.immediately && fn(options.defaultParams)
+    return new Promise(resolve => {
+      Dep.watcher = fn
+      walkChains(key, obj)
+      Dep.watcher = null
+      if (options.immediately) {
+        const fnRes = fn(options.defaultParams)
+        fnRes instanceof Promise
+          ? fnRes.then(res => resolve(res))
+          : resolve(fnRes)
+      }
+    })
   }
   unwatch (key, fn, obj = this.store) {
     walkChains(key, obj, () => handleDep.delSub(fn))
